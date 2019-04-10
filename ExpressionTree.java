@@ -27,8 +27,15 @@ public class ExpressionTree{
   /*return the value of the specified expression tree*/
   public double evaluate(){
     /*you are to write this method*/
-    return 0.0;
+    if(isValue()){ //BASE CASE : pass the double's value up the tree
+      return getValue();
+    }else{ //RECURSIVE CASE : carry out operation on completed eval of each branch
+      return apply(getOp(),
+                   getLeft().evaluate(),
+                   getRight().evaluate()
+                   );
     }
+  }
 
   /*use the correct operator on both a and b, and return that value*/
   private double apply(char op, double a, double b){
