@@ -13,7 +13,13 @@ public class ExpressionTree{
   /* The sample tree would be: "3 2 10 * +"     */
   public String toStringPostfix(){
     /*you are to write this method*/
-    return "";
+    if(isValue()){ // BASE CASE : pass just this number out (no spaces on sides)
+      return ""+getValue();
+    }else{ // RECURSIVE CASE : print full operation (L,R,OP) no spaces on sides
+      return getLeft().toStringPostfix() + " " +
+            getRight().toStringPostfix() + " " +
+             getOp();
+    }
   }
 
   /*return the expression as a prefix notation string without parenthesis*/
