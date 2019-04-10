@@ -33,7 +33,13 @@ public class ExpressionTree{
 
   public String toStringPrefix(){
     /*you are to write this method*/
-    return "";
+    if(isValue()){
+      return ""+getValue();
+    }else{
+      return getOp() + " " +
+             getLeft().toStringPrefix() + " " +
+            getRight().toStringPrefix();
+    }
   }
 
   /*return the value of the specified expression tree*/
