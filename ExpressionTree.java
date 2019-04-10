@@ -6,7 +6,13 @@ public class ExpressionTree{
   /* The sample tree would be: "(3 + (2 * 10))"     */
   public String toString(){
     /*you are to write this method*/
-    return "";
+    if(isValue()){ //BASE CASE : return only this number for higher levels (no spaces)
+      return ""+getValue();
+    }else{ // RECURSIVE CASE : return operation (L op R) without exterior spaces
+      return "(" + getLeft() + " " +
+                   getOp() + " " +
+                  getRight() + ")";
+    }
   }
 
   /*return the expression as a postfix notation string without parenthesis*/
